@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 18 — Билеты на мероприятие</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Билеты на фестиваль</h1>
+  <form id="eventForm" novalidate>
+    <div class="field" data-field="name">
+      <label for="name">Имя</label>
+      <input id="name" type="text">
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="email">
+      <label for="email">E-mail</label>
+      <input id="email" type="email">
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="category">
+      <label for="category">Категория билета</label>
+      <select id="category">
+        <option value="" data-price="0">Выберите категорию</option>
+        <option data-price="3000">Фан-зона — 3 000 ₸</option>
+        <option data-price="5000">Стандарт — 5 000 ₸</option>
+        <option data-price="15000">VIP — 15 000 ₸</option>
+      </select>
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="quantity">
+      <label for="quantity">Количество билетов (1–10)</label>
+      <input id="quantity" type="number" value="1">
+      <span class="error"></span>
+    </div>
+    <fieldset class="field" data-field="options">
+      <legend>Дополнительные опции (на весь заказ)</legend>
+      <label class="opt"><input type="checkbox" name="option" value="Парковка" data-price="1000"> Парковка — 1 000 ₸</label>
+      <label class="opt"><input type="checkbox" name="option" value="Афтепати" data-price="2500"> Афтепати — 2 500 ₸</label>
+      <label class="opt"><input type="checkbox" name="option" value="Мерч-набор" data-price="4000"> Мерч-набор — 4 000 ₸</label>
+      <span class="error"></span>
+    </fieldset>
+    <div class="total" id="total">Итого: 0 ₸</div>
+    <button type="submit">Забронировать</button>
+  </form>
+  <div id="result" class="result"></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

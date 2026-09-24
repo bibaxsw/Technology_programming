@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 2 — Обратная связь</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Напишите нам</h1>
+  <form id="feedbackForm" novalidate>
+    <div class="field" data-field="name">
+      <label for="name">Имя</label>
+      <input id="name" type="text">
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="topic">
+      <label for="topic">Тема сообщения</label>
+      <select id="topic">
+        <option value="">Выберите тему</option>
+        <option>Вопрос по учёбе</option>
+        <option>Предложение</option>
+        <option>Жалоба</option>
+        <option>Другое</option>
+      </select>
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="message">
+      <label for="message">Сообщение</label>
+      <textarea id="message" maxlength="500"></textarea>
+      <span class="hint" id="counter">0 / 500</span>
+      <span class="error"></span>
+    </div>
+    <button type="submit">Отправить</button>
+  </form>
+  <div id="result" class="result"></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

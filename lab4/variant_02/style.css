@@ -1,0 +1,57 @@
+:root {
+  --ink: #111; --red: #e4322b; --blue: #1f4fd8; --yellow: #ffc20e; --ok: #12805c; --paper: #ececec;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 34px 14px 56px; color: var(--ink); background: var(--paper);
+  font-family: "Helvetica Neue", Arial, sans-serif; position: relative; overflow-x: hidden;
+}
+/* геометрия в духе Баухаус */
+body::before { content: ""; position: fixed; top: -70px; right: -70px; width: 260px; height: 260px; border-radius: 50%; background: var(--yellow); z-index: 0; }
+body::after { content: ""; position: fixed; bottom: -60px; left: -60px; width: 200px; height: 200px; background: var(--blue); transform: rotate(18deg); z-index: 0; }
+.card {
+  position: relative; z-index: 1; max-width: 540px; margin: 0 auto; padding: 44px 28px 32px; background: #fff;
+  background-image: linear-gradient(to right, var(--red) 0 34%, var(--yellow) 34% 67%, var(--blue) 67% 100%);
+  background-repeat: no-repeat; background-size: 100% 14px; background-position: top;
+}
+h1 { margin: 0; font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif; font-weight: 900; font-size: 2rem; line-height: 1.05; letter-spacing: -.03em; }
+form { margin-top: 26px; }
+.field { margin-bottom: 20px; padding: 0; border: 0; min-width: 0; }
+.field > label, legend { display: block; margin-bottom: 7px; padding: 0; font-weight: 700; font-size: .92rem; }
+input[type=text], input[type=email], input[type=number], input[type=tel], input[type=password],
+input[type=date], input[type=time], select, textarea {
+  width: 100%; padding: 11px 12px; font: inherit; font-size: 1rem; color: var(--ink); background: #fff;
+  border: 2px solid var(--ink); border-radius: 0; transition: background .15s, box-shadow .15s, border-color .15s;
+}
+textarea { resize: vertical; min-height: 104px; }
+input:focus, select:focus, textarea:focus { outline: none; background: #fff7d1; border-color: var(--blue); box-shadow: inset 0 -4px 0 var(--blue); }
+.field.valid input:not([type=checkbox]):not([type=radio]), .field.valid select, .field.valid textarea { border-color: var(--ok); box-shadow: inset 0 -4px 0 var(--ok); }
+.field.invalid input:not([type=checkbox]):not([type=radio]), .field.invalid select, .field.invalid textarea { border-color: var(--red); background: #fff0ee; box-shadow: inset 0 -4px 0 var(--red); }
+
+.opt { display: flex; align-items: center; gap: 12px; margin: 8px 0; padding: 10px 12px; font-weight: 600; cursor: pointer;
+  background: #fff; border: 2px solid var(--ink); transition: background .12s, color .12s; }
+.opt:hover { background: #f3f3f3; }
+.opt:has(input:checked) { background: var(--ink); color: #fff; }
+.opt input { width: 1.15rem; height: 1.15rem; margin: 0; flex: none; accent-color: var(--yellow); }
+.field.invalid .opt { border-color: var(--red); }
+
+.error { display: block; min-height: 1.1em; margin-top: 6px; font-size: .86rem; font-weight: 700; color: var(--red); }
+.error:not(:empty)::before { content: "■ "; }
+.hint { display: block; margin-top: 6px; font-size: .84rem; font-weight: 600; color: var(--blue); }
+.total { margin: 4px 0 20px; padding: 14px 16px; background: var(--ink); color: var(--yellow); font-family: "Arial Black", Arial, sans-serif; font-size: 1.15rem; }
+
+button[type=submit] { width: 100%; padding: 17px 18px; font: inherit; font-family: "Arial Black", Arial, sans-serif; font-size: 1.05rem; text-align: left;
+  color: #fff; background: var(--red); border: 0; border-radius: 0; cursor: pointer; transition: background .15s, transform .1s; }
+button[type=submit]::after { content: " ▶"; float: right; }
+button[type=submit]:hover { background: var(--blue); }
+button[type=submit]:active { transform: translateY(2px); }
+button:focus-visible, .opt:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.result { display: none; margin-top: 28px; padding: 16px 18px; background: #fff; border: 2px solid var(--ink); border-left: 16px solid var(--yellow); }
+.result.show { display: block; animation: slide .3s ease-out; }
+.result h2 { margin: 0 0 10px; font-family: "Arial Black", Arial, sans-serif; font-size: 1.1rem; }
+.result p { margin: 5px 0; font-weight: 500; }
+.hidden { display: none; }
+@keyframes slide { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (max-width: 480px) { .card { padding: 40px 18px 26px; } h1 { font-size: 1.6rem; } }

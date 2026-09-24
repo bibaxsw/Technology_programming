@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 14 — Техподдержка</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Заявка в поддержку</h1>
+  <form id="supportForm" novalidate>
+    <div class="field" data-field="email">
+      <label for="email">E-mail для ответа</label>
+      <input id="email" type="email" placeholder="name@example.com">
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="category">
+      <label for="category">Категория проблемы</label>
+      <select id="category">
+        <option value="">Выберите категорию</option>
+        <option>Не работает вход</option>
+        <option>Ошибка в приложении</option>
+        <option>Проблема с оплатой</option>
+        <option>Другое</option>
+      </select>
+      <span class="error"></span>
+    </div>
+    <fieldset class="field" data-field="priority">
+      <legend>Приоритет</legend>
+      <label class="opt"><input type="radio" name="priority" value="Низкий"> Низкий</label>
+      <label class="opt"><input type="radio" name="priority" value="Средний"> Средний</label>
+      <label class="opt"><input type="radio" name="priority" value="Высокий"> Высокий</label>
+      <span class="error"></span>
+    </fieldset>
+    <div class="field" data-field="description">
+      <label for="description">Описание проблемы</label>
+      <textarea id="description" placeholder="Что произошло и что вы уже пробовали?"></textarea>
+      <span class="hint" id="counter">0 из 20 минимальных символов</span>
+      <span class="error"></span>
+    </div>
+    <button type="submit">Отправить заявку</button>
+  </form>
+  <div id="result" class="result"></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

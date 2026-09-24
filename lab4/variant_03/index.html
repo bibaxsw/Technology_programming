@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вариант 3 — Заказ билета</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Заказ билета</h1>
+  <form id="ticketForm" novalidate>
+    <div class="field" data-field="name">
+      <label for="name">Имя пассажира</label>
+      <input id="name" type="text">
+      <span class="error"></span>
+    </div>
+    <div class="field" data-field="city">
+      <label for="city">Город назначения</label>
+      <select id="city">
+        <option value="" data-price="0">Выберите город</option>
+        <option data-price="18000">Астана</option>
+        <option data-price="22000">Актау</option>
+        <option data-price="15000">Шымкент</option>
+        <option data-price="30000">Стамбул</option>
+      </select>
+      <span class="error"></span>
+    </div>
+    <fieldset class="field" data-field="type">
+      <legend>Тип билета</legend>
+      <label class="opt"><input type="radio" name="type" value="Эконом" data-mult="1"> Эконом</label>
+      <label class="opt"><input type="radio" name="type" value="Бизнес" data-mult="2.2"> Бизнес (×2,2)</label>
+      <label class="opt"><input type="radio" name="type" value="Первый класс" data-mult="3.5"> Первый класс (×3,5)</label>
+      <span class="error"></span>
+    </fieldset>
+    <div class="field" data-field="terms">
+      <label class="opt"><input id="terms" type="checkbox"> Принимаю условия перевозки</label>
+      <span class="error"></span>
+    </div>
+    <div class="total" id="price">Цена: выберите город и тип</div>
+    <button type="submit">Заказать билет</button>
+  </form>
+  <div id="result" class="result"></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
