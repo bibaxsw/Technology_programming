@@ -1,0 +1,26 @@
+password = input("Введите пароль: ")
+
+print("Требования:")
+print("- Длина пароля не менее 8 символов")
+print("- Пароль должен содержать хотя бы одну цифру")
+
+length_ok = len(password) >= 8
+digit_ok = any(char.isdigit() for char in password)
+
+print("\nРезультат:")
+
+if length_ok:
+    print("✓ Длина пароля: выполнено")
+else:
+    print("✗ Длина пароля: не выполнено")
+
+if digit_ok:
+    print("✓ Наличие цифры: выполнено")
+else:
+    print("✗ Наличие цифры: не выполнено")
+
+if length_ok and digit_ok:
+    print("Пароль соответствует всем требованиям.")
+else:
+    print("Пароль не соответствует всем требованиям.")
+
