@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('run').onclick=()=>{const n=+$('num').value;let s='';for(let i=1;i<=10;i++)s+=`${n} × ${i} = ${n*i}<br>`;$('result').innerHTML=s};

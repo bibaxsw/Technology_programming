@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);function render(){document.querySelectorAll('#list li').forEach((x,i)=>x.textContent=`${i+1}. ${x.dataset.name}`)}$('add').onclick=()=>{const v=$('item').value.trim();if(!v)return;const li=document.createElement('li');li.dataset.name=v;$('list').append(li);$('item').value='';render()};$('clear').onclick=()=>{$('list').innerHTML=''};

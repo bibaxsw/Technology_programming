@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);let n=0;function render(){$('count').textContent=n;$('result').textContent=`Текущее значение: ${n}`};$('plus').onclick=()=>{n++;render()};$('minus').onclick=()=>{n--;render()};$('reset').onclick=()=>{n=0;render()};

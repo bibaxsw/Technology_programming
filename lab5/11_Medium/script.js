@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#students li').forEach(x=>x.hidden=!x.textContent.toLowerCase().includes(q))});

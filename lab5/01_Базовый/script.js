@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id); function calculate(a,b){return {sum:a+b,diff:a-b,mul:a*b,div:b===0?'Деление на ноль':a/b}} $('calc').onclick=()=>{const a=+$('a').value,b=+$('b').value,r=calculate(a,b);$('result').innerHTML=`Сложение: ${r.sum}<br>Вычитание: ${r.diff}<br>Умножение: ${r.mul}<br>Деление: ${r.div}`};

@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('make').onclick=()=>{$('result').innerHTML=`<h2>${$('name').value}</h2><p>Группа: ${$('group').value}</p><p>Курс: ${$('course').value}</p>`};

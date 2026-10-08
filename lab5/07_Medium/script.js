@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);function toC(v,u){if(u==='C')return v;if(u==='F')return(v-32)*5/9;return v-273.15}function convert(v,u){return u==='C'?v:u==='F'?v*9/5+32:v+273.15}$('convert').onclick=()=>{const c=toC(+$('temp').value,$('from').value);$('result').textContent=`Результат: ${convert(c,$('to').value).toFixed(2)} °${$('to').value}`};

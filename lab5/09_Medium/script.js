@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('check').onclick=()=>{const p=$('password').value;const ok=p.length>=8&&/\d/.test(p);$('result').innerHTML=ok?'<span class="success">Пароль подходит</span>':'<span class="error">Нужно минимум 8 символов и одну цифру</span>'};

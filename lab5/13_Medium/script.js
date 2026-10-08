@@ -1,0 +1,1 @@
+document.getElementById('quiz').addEventListener('submit',e=>{e.preventDefault();let score=0;for(let i=1;i<=5;i++)score+=Number(document.querySelector(`input[name=q${i}]:checked`)?.value||0);document.getElementById('result').textContent=`Результат: ${score}/5`});

@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);function total(p,q,d){return p*q+d}$('calc').onclick=()=>{const p=+$('price').value,q=+$('qty').value,d=+$('delivery').value;$('result').textContent=`Итого: ${total(p,q,d).toFixed(2)} ₸`};

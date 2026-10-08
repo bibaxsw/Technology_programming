@@ -1,0 +1,9 @@
+body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;padding:20px;background:#f5f5f5;color:#222}
+.card{background:white;padding:24px;border-radius:14px;box-shadow:0 2px 10px #0001;margin-bottom:20px}
+input,select,button{padding:10px;margin:5px;border:1px solid #ccc;border-radius:8px}
+button{cursor:pointer}.result{margin-top:15px;padding:12px;border-radius:8px;background:#eee}
+ul{padding-left:25px}.error{color:#b00020}.success{color:#087f23}
+.dark{background:#171717;color:#eee}.dark .card{background:#242424}.dark .result{background:#333}
+table{border-collapse:collapse;width:100%;margin-top:15px}td,th{border:1px solid #ccc;padding:9px;text-align:left}
+.product{display:inline-block;vertical-align:top;width:40%;min-width:220px;margin:8px;padding:15px;background:#fafafa;border:1px solid #ddd;border-radius:10px}
+.done{text-decoration:line-through;opacity:.6}

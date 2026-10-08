@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('calc').onclick=()=>{const a=$('grades').value.split(',').map(Number).filter(Number.isFinite);$('result').textContent=a.length?`Средний балл: ${(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2)}`:'Введите оценки'};

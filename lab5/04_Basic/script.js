@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('theme').addEventListener('click',()=>document.body.classList.toggle('dark'));

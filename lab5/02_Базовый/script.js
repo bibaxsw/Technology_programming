@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('check').onclick=()=>{const a=+$('age').value;let c=a<0?'Некорректный возраст':a<13?'Ребенок':a<18?'Подросток':a<60?'Взрослый':'Пожилой';$('result').textContent=c};

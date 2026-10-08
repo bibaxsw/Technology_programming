@@ -1,0 +1,1 @@
+const $=id=>document.getElementById(id);$('sum').onclick=()=>{const n=+$('n').value;let total=0,list=[];for(let i=1;i<=n;i++){total+=i;list.push(i)}$('result').innerHTML=`Числа: ${list.join(', ')}<br>Сумма: ${total}`};
