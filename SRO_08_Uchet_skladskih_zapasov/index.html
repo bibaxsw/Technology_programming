@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Учёт складских запасов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">МИНИ-ПРОЕКТ · СРО · ВАРИАНТ 08</p>
+      <h1>Учёт складских запасов</h1>
+      <p class="subtitle">Поступление, списание, поиск и контроль остатков товаров</p>
+    </div>
+    <div class="summary-pill"><span id="totalKinds">0</span><small>позиций на складе</small></div>
+  </header>
+
+  <main>
+    <section class="stats" aria-label="Сводка склада">
+      <article class="stat-card"><span>Позиций</span><strong id="statKinds">0</strong></article>
+      <article class="stat-card"><span>Единиц товара</span><strong id="statUnits">0</strong></article>
+      <article class="stat-card"><span>Стоимость остатков</span><strong id="statValue">0 ₸</strong></article>
+      <article class="stat-card warning"><span>Низкий остаток</span><strong id="statLow">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">ОПЕРАЦИИ</p><h2>Добавить или изменить остаток</h2></div>
+      </div>
+      <form id="productForm" class="form-grid">
+        <label>Название товара<input id="name" maxlength="60" required placeholder="Например, Кабель USB-C"></label>
+        <label>Категория<input id="category" maxlength="40" required placeholder="Например, Аксессуары"></label>
+        <label>Количество<input id="quantity" type="number" min="1" step="1" required placeholder="10"></label>
+        <label>Цена за единицу (₸)<input id="price" type="number" min="0" step="0.01" required placeholder="1500"></label>
+        <div class="form-actions"><button type="submit" class="primary">Принять поступление</button><button type="button" id="clearForm" class="secondary">Очистить поля</button></div>
+      </form>
+      <p class="hint">Если товар уже есть, поступившее количество добавится к текущему остатку. Для одного товара используется одно название.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading split">
+        <div><p class="eyebrow">СКЛАД</p><h2>Список товаров</h2></div>
+        <label class="search">Поиск<input id="search" type="search" placeholder="Название или категория"></label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Товар</th><th>Категория</th><th>Остаток</th><th>Цена</th><th>Сумма</th><th>Действия</th></tr></thead>
+          <tbody id="productRows"></tbody>
+        </table>
+      </div>
+      <p id="emptyState" class="empty" hidden>Товары не найдены. Добавьте товар или измените поисковый запрос.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">ИСТОРИЯ</p><h2>Последние операции</h2></div></div>
+      <div class="table-wrap">
+        <table class="history-table">
+          <thead><tr><th>Дата и время</th><th>Операция</th><th>Товар</th><th>Количество</th><th>Комментарий</th></tr></thead>
+          <tbody id="historyRows"></tbody>
+        </table>
+      </div>
+      <p id="historyEmpty" class="empty" hidden>Пока операций нет.</p>
+    </section>
+    <footer>Учебный мини-проект. Данные сохраняются в браузере на этом устройстве.</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
