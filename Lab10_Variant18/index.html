@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Система заказов студенческой столовой">
+  <title>Столовая — система заказов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Столовая, главная">
+        <span class="brand-mark">С</span><span><strong>СТОЛОВАЯ</strong><small>система заказов</small></span>
+      </a>
+      <div class="side-caption">РАБОЧЕЕ МЕСТО</div>
+      <button class="nav-item active" data-view="menu"><span class="nav-icon">▦</span> Меню и заказ</button>
+      <button class="nav-item" data-view="orders"><span class="nav-icon">≡</span> Заказы <span class="nav-count" id="orderCount">0</span></button>
+      <div class="sidebar-bottom">
+        <div class="today-label">СЕГОДНЯ</div>
+        <div id="todayDate" class="today-date"></div>
+        <div class="sidebar-note">Учебный проект<br>Лабораторная работа №10</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div><div class="eyebrow">СТУДЕНЧЕСКАЯ СТОЛОВАЯ</div><h1 id="pageTitle">Меню и оформление заказа</h1></div>
+        <div class="topbar-right"><span class="open-dot"></span><span>Система активна</span></div>
+      </header>
+
+      <section id="menuView" class="view">
+        <div class="toolbar">
+          <div class="search-wrap"><span class="search-symbol">⌕</span><input id="searchInput" type="search" placeholder="Найти блюдо..." aria-label="Поиск блюд"></div>
+          <div id="categoryFilters" class="filters">
+            <button class="filter active" data-category="Все">Все блюда</button>
+            <button class="filter" data-category="Горячее">Горячее</button>
+            <button class="filter" data-category="Супы">Супы</button>
+            <button class="filter" data-category="Салаты">Салаты</button>
+            <button class="filter" data-category="Напитки">Напитки</button>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <section class="menu-section">
+            <div class="section-heading"><div><h2>Сегодня в меню</h2><p>Выберите блюда и добавьте их в заказ</p></div><span id="menuResultCount" class="muted-count"></span></div>
+            <div id="menuGrid" class="menu-grid"></div>
+            <div id="emptyMenu" class="empty-state hidden">По вашему запросу ничего не найдено.</div>
+          </section>
+
+          <aside class="order-panel">
+            <div class="order-panel-head"><div><span class="panel-kicker">ТЕКУЩИЙ ЗАКАЗ</span><h2>Ваш заказ</h2></div><button id="clearOrderBtn" class="text-button" type="button">Очистить</button></div>
+            <div id="cartItems" class="cart-items"><div class="cart-empty"><div class="empty-line"></div><p>Пока ничего нет</p><small>Добавьте блюда из меню</small></div></div>
+            <div class="order-summary">
+              <div class="summary-row"><span>Количество позиций</span><strong id="itemsTotal">0</strong></div>
+              <div class="summary-row"><span>Стоимость блюд</span><strong id="subtotal">0 ₸</strong></div>
+              <div class="summary-row"><span>Обслуживание (5%)</span><strong id="serviceFee">0 ₸</strong></div>
+              <div class="summary-total"><span>Итого к оплате</span><strong id="grandTotal">0 ₸</strong></div>
+            </div>
+            <div class="checkout-area">
+              <label for="customerName">Имя клиента</label>
+              <input id="customerName" type="text" maxlength="40" placeholder="Например, Бейбарыс">
+              <label for="paymentMethod">Способ оплаты</label>
+              <select id="paymentMethod"><option value="Картой">Банковская карта</option><option value="Наличными">Наличными</option></select>
+              <button id="submitOrderBtn" class="primary-button" type="button" disabled>Оформить заказ <span id="checkoutAmount">0 ₸</span></button>
+              <p class="checkout-hint">Проверьте состав заказа перед оформлением.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="ordersView" class="view hidden">
+        <div class="orders-toolbar"><div><h2>История заказов</h2><p>Оформленные заказы и их текущий статус</p></div><button id="backToMenuBtn" class="secondary-button">＋ Новый заказ</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Номер</th><th>Клиент</th><th>Состав заказа</th><th>Сумма</th><th>Оплата</th><th>Статус</th><th>Действие</th></tr></thead><tbody id="ordersTableBody"></tbody></table><div id="emptyOrders" class="table-empty">Оформленных заказов пока нет.</div></div>
+      </section>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+  <script src="src/modules/menu.js"></script>
+  <script src="src/modules/pricing.js"></script>
+  <script src="src/modules/orders.js"></script>
+  <script src="src/modules/ui.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
